@@ -118,7 +118,7 @@ export const CustomTextField = ({ id, fieldData, index, preview = false }) => {
       {!preview && (
         <div
           onClick={handleDelete}
-          className="flex justify-center items-center text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-2xl w-12 h-20 hover:scale-110 transition duration-300"
+          className="flex justify-center items-center text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-2xl w-12 h-20 hover:scale-110 transition duration-700  delay-100 cursor-pointer"
         >
           <Trash2 className="" />
         </div>

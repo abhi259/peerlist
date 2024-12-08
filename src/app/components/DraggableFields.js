@@ -61,7 +61,7 @@ export const DraggableFields = () => {
   useDraftStorage();
 
   return (
-    <div className="py-5 grow w-full pl-4">
+    <div className="py-5 grow w-full pl-4 px-2">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
