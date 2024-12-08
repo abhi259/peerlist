@@ -29,7 +29,7 @@ export const Header = () => {
       />
       <button
         onClick={handlePreview}
-        className={`flex  justify-center items-center  gap-1 border  px-3 p-1 rounded-2xl text-[14px]  ${isActive ? '  text-gray-700 border-gray-400 hover:scale-125 transition' : 'text-gray-400 border-gray-200'}  `}
+        className={`flex  justify-center items-center  gap-1 border  px-3 p-1 rounded-2xl text-[14px]  ${isActive ? '  text-gray-700 border-gray-400 hover:scale-110 transition' : 'text-gray-400 border-gray-200'}  `}
       >
         <p>Preview</p>
         <ArrowUpRight size={16} />

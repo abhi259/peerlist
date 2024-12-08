@@ -57,32 +57,32 @@ export const Footer = () => {
   };
 
   return (
-    <div className="h-[64px] border-t border-gray-300 w-full flex justify-between items-center p-4 ">
+    <div className="h-[64px] border-t border-gray-300 w-full flex justify-between items-center p-4   ">
       <div className="flex gap-2">
         <button
           onClick={() => {
             handleSaveAsDraft();
             toast.info('Saved as draft');
           }}
-          className="flex gap-1 border border-gray-200 px-3 p-1 rounded-2xl text-[14px] text-gray-400 justify-center items-center hover:text-gray-800 hover:border-gray-300 hover:bg-gray-300 hover:scale-125 transition "
+          className="flex gap-1 border border-gray-200 px-3 p-1 rounded-2xl text-[14px] text-gray-400 justify-center items-center hover:text-gray-800 hover:border-gray-300 hover:bg-gray-300 hover:scale-110 transition "
         >
           <SquarePen size={16} />
           <p>Save as Draft</p>
         </button>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         <button
           onClick={() => {
             handleReset();
           }}
-          className="flex gap-1 border border-gray-200 px-3 p-1 rounded-2xl text-[14px] text-gray-400 justify-center items-center hover:text-gray-800 hover:border-gray-300 hover:bg-gray-300 hover:scale-125 transition "
+          className="flex gap-1 border border-gray-200 px-3 p-1 rounded-2xl text-[14px] text-gray-400 justify-center items-center hover:text-gray-800 hover:border-gray-300 hover:bg-gray-300 hover:scale-110 transition "
         >
           <Trash2 size={16} />
           <p>Reset</p>
         </button>
         <button
           onClick={handlePublishForm}
-          className="flex gap-1 bg-green-700  px-3 p-1 rounded-2xl text-[14px] text-gray-100 justify-center items-center hover:border-gray-300 hover:bg-green-600 hover:scale-125 transition  "
+          className="flex gap-1 bg-green-700  px-3 p-1 rounded-2xl text-[14px] text-gray-100 justify-center items-center hover:border-gray-300 hover:bg-green-600 hover:scale-110 transition  "
         >
           <Check size={16} />
           <p>Publish</p>

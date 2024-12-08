@@ -61,7 +61,7 @@ export const DraggableFields = () => {
   useDraftStorage();
 
   return (
-    <div className="py-5 grow w-full pl-4 px-2">
+    <div className="py-5 grow w-full pl-4 px-2   ">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -71,7 +71,7 @@ export const DraggableFields = () => {
           items={inputFieldDataState}
           strategy={verticalListSortingStrategy}
         >
-          <div className="space-y-2">
+          <div className="space-y-2 h-full overflow-y-auto">
             {inputFieldDataState.map((item, index) => (
               <CustomTextField
                 key={item.text + '-' + index}
