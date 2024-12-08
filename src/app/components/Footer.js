@@ -10,9 +10,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import shortUUID from 'short-uuid';
+import { validateAllForms } from '@/app/utils/validateAllForms';
 
 export const Footer = () => {
-  const { inputFieldDataState, formTitle } = useInputFieldStore();
+  const {
+    inputFieldDataState,
+    setInputFieldDataState,
+    formTitle,
+    setFormTitle,
+  } = useInputFieldStore();
   const { saveAsDraftState, setSaveAsDraftState } = useSaveAsDraftStore();
   const { publishedForms, setPublishedForms } = usePublishedStore();
 
@@ -24,14 +30,28 @@ export const Footer = () => {
   };
 
   const handlePublishForm = () => {
+    const validate = validateAllForms({
+      state: inputFieldDataState,
+      setState: setInputFieldDataState,
+    });
+
+    if (!validate) {
+      toast.error('Please fill out the form');
+      return;
+    }
     const uniqueID = shortUUID.generate();
     const newPublishedForm = { [uniqueID]: saveAsDraftState };
+
     handleSaveAsDraft();
     setPublishedForms({ ...publishedForms, ...newPublishedForm });
+    toast.info('Published');
+
+    setInputFieldDataState([]);
+    setFormTitle('');
   };
 
   return (
-    <div className="h-[64px] border border-gray-300 w-full flex justify-between items-center p-4 ">
+    <div className="h-[64px] border-t border-gray-300 w-full flex justify-between items-center p-4 ">
       <button
         onClick={() => {
           handleSaveAsDraft();
@@ -43,10 +63,7 @@ export const Footer = () => {
         <p>Save as Draft</p>
       </button>
       <button
-        onClick={() => {
-          handlePublishForm();
-          toast.info('Published');
-        }}
+        onClick={handlePublishForm}
         className="flex gap-1 bg-green-700  px-3 p-1 rounded-2xl text-[14px] text-gray-100 justify-center items-center hover:border-gray-300 hover:bg-green-600 hover:scale-125 transition  "
       >
         <Check size={16} />

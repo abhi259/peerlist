@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-gray-00 ">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-gray-00 max-w-[600px] m-auto border ">
       <Header />
       <DraggableFields />
       <Footer />

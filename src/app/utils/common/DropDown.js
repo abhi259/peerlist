@@ -1,3 +1,5 @@
+'use client ';
+
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
@@ -25,6 +27,7 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       fieldType: FIELDTYPE.SHORT,
       title: '',
       helpTitle: '',
+      error: false,
     },
     {
       icon: longAnswerSvg,
@@ -32,6 +35,7 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       fieldType: FIELDTYPE.LONG,
       title: '',
       helpTitle: '',
+      error: false,
     },
     {
       icon: singleSelectSvg,
@@ -39,6 +43,7 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       fieldType: FIELDTYPE.SINGLE,
       title: '',
       helpTitle: '',
+      error: false,
     },
     {
       icon: urlSvg,
@@ -46,6 +51,7 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       fieldType: FIELDTYPE.URL,
       title: '',
       helpTitle: '',
+      error: false,
     },
     {
       icon: dateSvg,
@@ -53,6 +59,7 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       fieldType: FIELDTYPE.DATE,
       title: '',
       helpTitle: '',
+      error: false,
     },
   ];
 

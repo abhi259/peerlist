@@ -22,6 +22,7 @@ import {
   useSaveAsDraftStore,
 } from '@/app/zustand-store/input-field-store';
 import { useEffect } from 'react';
+import useDraftStorage from '@/app/utils/customHooks/useDraftStorage';
 
 export const DraggableFields = () => {
   const { inputFieldDataState, setInputFieldDataState, setFormTitle } =
@@ -57,21 +58,10 @@ export const DraggableFields = () => {
     setInputFieldDataState([...inputFieldDataState, item]);
   };
 
-  useEffect(() => {
-    const draftData = localStorage.getItem('draft-storage');
-    const parsedData = JSON.parse(draftData);
-    const tempSaveAsDraftState = parsedData?.state?.saveAsDraftState;
-    console.log(tempSaveAsDraftState);
-
-    if (tempSaveAsDraftState?.formData.length > 0) {
-      setInputFieldDataState(tempSaveAsDraftState.formData);
-      setFormTitle(tempSaveAsDraftState.formTitle);
-      setSaveAsDraftState(tempSaveAsDraftState);
-    }
-  }, []);
+  useDraftStorage();
 
   return (
-    <div className="py-5 grow w-full p-2">
+    <div className="py-5 grow w-full pl-4">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
