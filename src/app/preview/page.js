@@ -23,8 +23,17 @@ export default function Preview() {
 
   return (
     <div className=" w-full max-w-[600px]  m-auto border min-h-screen ">
-      <div className="h-[56px] border-b border-gray-300 w-full flex justify-between items-center p-4 ">
+      <div className="h-[56px] border-b border-gray-300 w-full flex justify-between items-center p-4  ">
         <p>{title}</p>
+        <div className="flex flex-col items-end gap-1">
+          <p className="text-[14px]  ">Form completeness — 80%</p>
+          <div className="w-[300px] bg-gray-200 rounded-full h-2">
+            <div
+              className="bg-green-600 h-2 rounded-full"
+              style={{ width: `${80}%` }}
+            ></div>
+          </div>
+        </div>
       </div>
       <div className=" p-4  space-y-2">
         {inputFieldDataState.map((item, index) => (
