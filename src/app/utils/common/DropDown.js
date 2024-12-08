@@ -9,10 +9,14 @@ import urlSvg from '../../../../public/assets/url.svg';
 import dateSvg from '../../../../public/assets/date.svg';
 import { FIELDTYPE } from '@/app/utils/enums';
 
-export const DropDown = ({ icon, handleInputClick }) => {
+export const DropDown = ({ icon, handleInputClick, center }) => {
   const buttonRef = useRef(null);
   const dropdownRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const position = center
+    ? ' right-[-40px] md:right-[-75px] origin-top'
+    : 'right-0 origin-top-right';
 
   const inputTypesData = [
     {
@@ -80,11 +84,11 @@ export const DropDown = ({ icon, handleInputClick }) => {
       <div onClick={handleDropDownClick} ref={buttonRef}>
         {icon}
       </div>
-      {isDropdownOpen && (
-        <div
-          ref={dropdownRef}
-          className="absolute top-full  mt-2 right-0 bg-white border border-gray-200 rounded-xl shadow-lg z-50 w-[300px] p-1 flex flex-col "
-        >
+
+      <div
+        className={`${position} ${isDropdownOpen ? ' scale-100' : 'scale-0'} transition duration-300  absolute z-[1000] top-full  mt-2  bg-white border border-gray-200 rounded-xl shadow-lg  w-[220px] md:w-[300px]  p-1 flex flex-col  `}
+      >
+        <div ref={dropdownRef} className={`  `}>
           <div>
             <p className="p-2 text-[12px] bg-gray-50 rounded-xl text-gray-500 ">
               INPUT TYPES
@@ -107,7 +111,7 @@ export const DropDown = ({ icon, handleInputClick }) => {
             ))}
           </ul>
         </div>
-      )}
+      </div>
     </div>
   );
 };

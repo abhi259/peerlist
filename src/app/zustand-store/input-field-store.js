@@ -1,26 +1,49 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
 
-export const useInputFieldStore = create(
+export const useInputFieldStore = create((set) => ({
+  inputFieldDataState: [],
+  formTitle: '',
+
+  setInputFieldDataState: (payload) =>
+    set(() => ({
+      inputFieldDataState: payload,
+    })),
+
+  setFormTitle: (payload) =>
+    set(() => ({
+      formTitle: payload,
+    })),
+}));
+
+export const useSaveAsDraftStore = create(
   persist(
     (set) => ({
-      inputFieldDataState: [],
-
-      setInputFieldDataState: (payload) =>
-        set(() => ({
-          inputFieldDataState: payload,
-        })),
-
       saveAsDraftState: [],
-
-      setSaveAsDraft: (payload) =>
+      setSaveAsDraftState: (payload) =>
         set(() => ({
           saveAsDraftState: payload,
         })),
     }),
     {
-      name: 'draft-data',
-      partialize: (state) => ({ saveAsDraftState: state.saveAsDraftState }),
+      name: 'draft-storage',
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
+
+export const usePublishedStore = create(
+  persist(
+    (set) => ({
+      publishedForms: {},
+      setPublishedForms: (payload) =>
+        set(() => ({
+          publishedForms: payload,
+        })),
+    }),
+    {
+      name: 'published-storage',
+      storage: createJSONStorage(() => localStorage),
     }
   )
 );

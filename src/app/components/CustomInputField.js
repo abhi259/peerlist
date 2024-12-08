@@ -17,7 +17,7 @@ export const CustomInputField = ({ fieldType }) => {
   if (fieldType === FIELDTYPE.LONG)
     return (
       <input
-        className="w-full h-[64px] border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none focus:border-gray-700 "
+        className="w-full h-[70px] border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none focus:border-gray-700 "
         type="text"
         disabled
       />
@@ -59,7 +59,7 @@ export const CustomInputField = ({ fieldType }) => {
 
   if (fieldType === FIELDTYPE.DATE)
     return (
-      <div className="flex justify-between border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none ">
+      <div className="flex h-[32px] justify-between border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none ">
         <input disabled className="focus:outline-none bg-transparent w-full" />
         <Image src={dateSvg} width={16} height={16} alt="dateSvg" />
       </div>

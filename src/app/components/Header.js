@@ -4,15 +4,24 @@ import { ArrowUpRight } from 'lucide-react';
 import { useInputFieldStore } from '@/app/zustand-store/input-field-store';
 
 export const Header = () => {
-  const { inputFieldDataState } = useInputFieldStore();
+  const { inputFieldDataState, formTitle, setFormTitle } = useInputFieldStore();
 
   const isActive = inputFieldDataState.length > 0;
 
+  const handleFormTitle = (event) => {
+    const formTitle = event.target.value;
+    setFormTitle(formTitle);
+  };
   const handleClick = () => {};
 
   return (
     <div className="h-[56px] border border-gray-300 w-full flex justify-between items-center p-4 ">
-      <input className="focus:outline-none " placeholder="Untitled form" />
+      <input
+        onChange={handleFormTitle}
+        className="focus:outline-none "
+        placeholder="Untitled form"
+        value={formTitle}
+      />
       <button
         onClick={handleClick}
         disabled={isActive}

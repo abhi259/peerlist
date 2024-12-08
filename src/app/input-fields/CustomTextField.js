@@ -31,8 +31,16 @@ export const CustomTextField = ({ id, fieldData, index }) => {
 
   const { inputFieldDataState, setInputFieldDataState } = useInputFieldStore();
 
-  const handleTitleChange = (e) => {};
-  const handleHelpTextChange = (e) => {};
+  const handleTitleChange = (event) => {
+    const tempState = inputFieldDataState;
+    tempState[index].title = event.target.value;
+    setInputFieldDataState(tempState);
+  };
+  const handleHelpTextChange = (event) => {
+    const tempState = inputFieldDataState;
+    tempState[index].helpTitle = event.target.value;
+    setInputFieldDataState(tempState);
+  };
 
   const handleInputClick = (item) => {
     const tempState = inputFieldDataState;
@@ -51,7 +59,7 @@ export const CustomTextField = ({ id, fieldData, index }) => {
     <div
       ref={setNodeRef}
       style={style}
-      className="flex m-auto gap-2 max-w-[600px]"
+      className="flex items-center m-auto gap-2 max-w-[600px]"
     >
       <div className=" flex flex-col gap-2 grow w-full min-h-[100px] bg-white border border-gray-200 rounded-2xl p-4  ">
         <div className=" flex justify-between items-center  ">
@@ -91,9 +99,9 @@ export const CustomTextField = ({ id, fieldData, index }) => {
       </div>
       <div
         onClick={handleDelete}
-        className="flex justify-center items-center text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-2xl w-10"
+        className="flex justify-center items-center text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-2xl w-12 h-20 hover:scale-110 transition duration-300"
       >
-        <Trash2 />
+        <Trash2 className="" />
       </div>
     </div>
   );
