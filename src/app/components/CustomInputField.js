@@ -1,6 +1,8 @@
 import React from 'react';
 import { FIELDTYPE } from '@/app/utils/enums';
 import { Plus } from 'lucide-react';
+import dateSvg from '../../../public/assets/date.svg';
+import Image from 'next/image';
 
 export const CustomInputField = ({ fieldType }) => {
   if (fieldType === FIELDTYPE.SHORT)
@@ -29,6 +31,7 @@ export const CustomInputField = ({ fieldType }) => {
           <input
             className="w-full h-[32px] border border-gray-200 rounded-[8px] bg-white px-2 focus:outline-none focus:border-gray-700 "
             type="text"
+            placeholder="Option 1"
             disabled
           />
         </div>
@@ -56,10 +59,9 @@ export const CustomInputField = ({ fieldType }) => {
 
   if (fieldType === FIELDTYPE.DATE)
     return (
-      <input
-        className="w-full h-[64px] border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none focus:border-gray-700 "
-        type="text"
-        disabled
-      />
+      <div className="flex justify-between border border-gray-200 rounded-[8px] bg-gray-100 px-2 focus:outline-none ">
+        <input disabled className="focus:outline-none bg-transparent w-full" />
+        <Image src={dateSvg} width={16} height={16} alt="dateSvg" />
+      </div>
     );
 };

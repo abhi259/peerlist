@@ -1,7 +1,5 @@
-'use client';
-
 import React, { useState } from 'react';
-import { AlignLeft, ChevronDown } from 'lucide-react';
+import { AlignLeft, ChevronDown, Trash2 } from 'lucide-react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { DragHandle } from '@/app/utils/common/DragHandle';
@@ -11,13 +9,7 @@ import { CustomInputField } from '@/app/components/CustomInputField';
 import Image from 'next/image';
 import { useInputFieldStore } from '@/app/zustand-store/input-field-store';
 
-export const CustomTextField = ({
-  id,
-  fieldData,
-  index,
-  fieldState,
-  setFieldState,
-}) => {
+export const CustomTextField = ({ id, fieldData, index }) => {
   const {
     attributes,
     listeners,
@@ -49,26 +41,34 @@ export const CustomTextField = ({
     console.log(item);
   };
 
+  const handleDelete = () => {
+    const tempState = inputFieldDataState;
+    tempState.splice(index, 1);
+    setInputFieldDataState(tempState);
+  };
+
   return (
-    <div ref={setNodeRef} style={style}>
-      <div className=" flex flex-col gap-2 w-[580px] min-h-[100px] bg-white border border-gray-200 rounded-2xl p-4  ">
-        <div className=" flex justify-between items-center ">
-          <div>
-            <div className="flex flex-col w-full ">
-              <input
-                className="focus:outline-none text-[14px] font-semibold "
-                placeholder="Write a question"
-                onChange={handleTitleChange}
-              />
-              <input
-                className="focus:outline-none text-[12px] font-semibold  min-w-[400px] "
-                placeholder="Write a help text or caption (leave empty if not needed)."
-                onChange={handleHelpTextChange}
-              />
-            </div>
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="flex m-auto gap-2 max-w-[600px]"
+    >
+      <div className=" flex flex-col gap-2 grow w-full min-h-[100px] bg-white border border-gray-200 rounded-2xl p-4  ">
+        <div className=" flex justify-between items-center  ">
+          <div className="flex flex-col w-full ">
+            <input
+              className="focus:outline-none text-[14px] font-semibold "
+              placeholder="Write a question"
+              onChange={handleTitleChange}
+            />
+            <input
+              className="focus:outline-none text-[12px] font-semibold  placeholder:whitespace-nowrap placeholder:overflow-hidden placeholder:block placeholder:text-ellipsis"
+              placeholder="Write a help text or caption (leave empty if not needed)."
+              onChange={handleHelpTextChange}
+            />
           </div>
 
-          <div className="flex items-center gap-2  ">
+          <div className="flex items-center gap-3 ">
             <div className="flex items-center">
               <Image
                 src={fieldData.icon}
@@ -88,6 +88,12 @@ export const CustomTextField = ({
           </div>
         </div>
         <CustomInputField fieldType={fieldData.fieldType} />
+      </div>
+      <div
+        onClick={handleDelete}
+        className="flex justify-center items-center text-gray-400 hover:text-gray-700 hover:bg-gray-200 rounded-2xl w-10"
+      >
+        <Trash2 />
       </div>
     </div>
   );

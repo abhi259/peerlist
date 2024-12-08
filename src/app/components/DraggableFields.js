@@ -51,7 +51,7 @@ export const DraggableFields = () => {
   };
 
   return (
-    <div className="py-5">
+    <div className="py-5 grow w-full p-2">
       <DndContext
         sensors={sensors}
         collisionDetection={closestCenter}
@@ -73,12 +73,12 @@ export const DraggableFields = () => {
           </div>
         </SortableContext>
       </DndContext>
-      <div className="py-4 w-32  m-auto ">
+      <div className="py-4 w-[135px] m-auto ">
         <DropDown
           icon={
             <div className="flex items-center gap-1 border border-gray-200 rounded-xl p-1 px-2 hover:bg-gray-200 cursor-pointer ">
               <Plus size={16} />
-              <p className="text-[14px]">Add Question</p>
+              <p className="text-[14px] font-semibold ">Add Question</p>
             </div>
           }
           handleInputClick={handleDropDownClick}
