@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
-import shortAnswerSvg from '../../../../public/assets/short_answer.svg';
-import longAnswerSvg from '../../../../public/assets/long_answer.svg';
-import singleSelectSvg from '../../../../public/assets/single_select.svg';
-import urlSvg from '../../../../public/assets/url.svg';
-import dateSvg from '../../../../public/assets/date.svg';
-import { FIELDTYPE } from '@/app/utils/enums';
+import shortAnswerSvg from '../../../public/assets/short_answer.svg';
+import longAnswerSvg from '../../../public/assets/long_answer.svg';
+import singleSelectSvg from '../../../public/assets/single_select.svg';
+import urlSvg from '../../../public/assets/url.svg';
+import dateSvg from '../../../public/assets/date.svg';
+import { FIELDTYPE } from '@/utils/enums';
 
 export const DropDown = ({ icon, handleInputClick, center }) => {
   const buttonRef = useRef(null);

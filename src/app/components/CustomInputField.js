@@ -1,5 +1,5 @@
 import React from 'react';
-import { FIELDTYPE } from '@/app/utils/enums';
+import { FIELDTYPE } from '@/utils/enums';
 import { Plus } from 'lucide-react';
 import dateSvg from '../../../public/assets/date.svg';
 import Image from 'next/image';

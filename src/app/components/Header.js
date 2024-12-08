@@ -1,7 +1,7 @@
 'use client';
 
 import { ArrowUpRight } from 'lucide-react';
-import { useInputFieldStore } from '@/app/zustand-store/input-field-store';
+import { useInputFieldStore } from '@/zustand-store/input-field-store';
 import { useRouter } from 'next/navigation';
 
 export const Header = () => {

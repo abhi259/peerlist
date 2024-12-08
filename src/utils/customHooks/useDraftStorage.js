@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import {
   useInputFieldStore,
   useSaveAsDraftStore,
-} from '@/app/zustand-store/input-field-store';
+} from '@/zustand-store/input-field-store';
 
 const useDraftStorage = () => {
   const {

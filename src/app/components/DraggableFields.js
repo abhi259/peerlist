@@ -14,15 +14,15 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
-import { CustomTextField } from '@/app/input-fields/CustomTextField';
+import { CustomTextField } from '@/app/components/CustomTextField';
 import { Plus } from 'lucide-react';
-import { DropDown } from '@/app/utils/common/DropDown';
+import { DropDown } from '@/utils/common/DropDown';
 import {
   useInputFieldStore,
   useSaveAsDraftStore,
-} from '@/app/zustand-store/input-field-store';
+} from '@/zustand-store/input-field-store';
 import { useEffect } from 'react';
-import useDraftStorage from '@/app/utils/customHooks/useDraftStorage';
+import useDraftStorage from '@/utils/customHooks/useDraftStorage';
 
 export const DraggableFields = () => {
   const { inputFieldDataState, setInputFieldDataState, setFormTitle } =

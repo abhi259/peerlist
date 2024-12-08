@@ -3,10 +3,10 @@
 import {
   useInputFieldStore,
   useSaveAsDraftStore,
-} from '@/app/zustand-store/input-field-store';
-import { CustomTextField } from '@/app/input-fields/CustomTextField';
+} from '@/zustand-store/input-field-store';
+import { CustomTextField } from '@/app/components/CustomTextField';
 import { useEffect } from 'react';
-import useDraftStorage from '@/app/utils/customHooks/useDraftStorage';
+import useDraftStorage from '@/utils/customHooks/useDraftStorage';
 
 export default function Preview() {
   const {
@@ -19,10 +19,12 @@ export default function Preview() {
 
   useDraftStorage();
 
+  const title = formTitle.length > 0 ? formTitle : 'Untitled Form';
+
   return (
     <div className=" w-full max-w-[600px]  m-auto border min-h-screen ">
       <div className="h-[56px] border-b border-gray-300 w-full flex justify-between items-center p-4 ">
-        <p>{formTitle}</p>
+        <p>{title}</p>
       </div>
       <div className=" p-4  space-y-2">
         {inputFieldDataState.map((item, index) => (

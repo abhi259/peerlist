@@ -1,12 +1,12 @@
 import { AlignLeft, ChevronDown, Trash2 } from 'lucide-react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { DragHandle } from '@/app/utils/common/DragHandle';
-import { FIELDTYPE } from '@/app/utils/enums';
-import { DropDown } from '@/app/utils/common/DropDown';
+import { DragHandle } from '@/utils/common/DragHandle';
+import { FIELDTYPE } from '@/utils/enums';
+import { DropDown } from '@/utils/common/DropDown';
 import { CustomInputField } from '@/app/components/CustomInputField';
 import Image from 'next/image';
-import { useInputFieldStore } from '@/app/zustand-store/input-field-store';
+import { useInputFieldStore } from '@/zustand-store/input-field-store';
 
 export const CustomTextField = ({ id, fieldData, index, preview = false }) => {
   const {
