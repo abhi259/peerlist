@@ -57,7 +57,7 @@ export const Footer = () => {
   };
 
   return (
-    <div className="h-[64px] border-t border-gray-300 w-full flex justify-between items-center p-4   ">
+    <div className="h-[64px] border-t border-gray-300 bg-white w-full flex justify-between items-center p-4  sticky bottom-0  ">
       <div className="flex gap-2">
         <button
           onClick={() => {

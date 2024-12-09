@@ -14,6 +14,7 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+
 import { CustomTextField } from '@/app/components/CustomTextField';
 import { Plus } from 'lucide-react';
 import { DropDown } from '@/utils/common/DropDown';
@@ -23,6 +24,7 @@ import {
 } from '@/zustand-store/input-field-store';
 import { useEffect } from 'react';
 import useDraftStorage from '@/utils/customHooks/useDraftStorage';
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
 export const DraggableFields = () => {
   const { inputFieldDataState, setInputFieldDataState, setFormTitle } =
@@ -66,6 +68,7 @@ export const DraggableFields = () => {
         sensors={sensors}
         collisionDetection={closestCenter}
         onDragEnd={handleDragEnd}
+        modifiers={[restrictToVerticalAxis]}
       >
         <SortableContext
           items={inputFieldDataState}

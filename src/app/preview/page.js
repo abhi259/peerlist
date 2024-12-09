@@ -22,7 +22,7 @@ export default function Preview() {
   const title = formTitle.length > 0 ? formTitle : 'Untitled Form';
 
   return (
-    <div className=" w-full max-w-[600px]  m-auto border ">
+    <div className=" w-full max-w-[600px] min-h-dvh  m-auto border ">
       <div className="h-[56px] border-b border-gray-300 w-full flex justify-between items-center p-4  ">
         <p>{title}</p>
         <div className="flex flex-col items-end gap-1">
