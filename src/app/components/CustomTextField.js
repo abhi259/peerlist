@@ -55,7 +55,7 @@ export const CustomTextField = ({ id, fieldData, index, preview = false }) => {
     setInputFieldDataState(tempState);
   };
 
-  const error = inputFieldDataState[index].error;
+  const error = inputFieldDataState[index]?.error;
 
   return (
     <div
@@ -67,7 +67,9 @@ export const CustomTextField = ({ id, fieldData, index, preview = false }) => {
         <div className=" flex justify-between items-center  ">
           <div className="flex flex-col w-full ">
             <input
-              className={`focus:outline-none text-[14px] font-semibold ${error && !preview ? 'placeholder:text-red-600' : ''}   `}
+              className={`focus:outline-none text-[14px] font-semibold ${
+                error && !preview ? 'placeholder:text-red-600' : ''
+              }   `}
               placeholder="Write a question"
               onChange={handleTitleChange}
               value={fieldData.title}
