@@ -71,7 +71,7 @@ export const DraggableFields = () => {
           items={inputFieldDataState}
           strategy={verticalListSortingStrategy}
         >
-          <div className="space-y-2 h-full overflow-y-auto">
+          <div className="space-y-2 h-full ">
             {inputFieldDataState.map((item, index) => (
               <CustomTextField
                 key={item.text + '-' + index}
@@ -83,7 +83,7 @@ export const DraggableFields = () => {
           </div>
         </SortableContext>
       </DndContext>
-      <div className="py-4 w-[135px] m-auto ">
+      <div className="py-4 w-[135px] m-auto  ">
         <DropDown
           icon={
             <div className="flex items-center gap-1 border border-gray-200 rounded-xl p-1 px-2 hover:bg-gray-200 hover:scale-110 cursor-pointer  transition duration-300 ">

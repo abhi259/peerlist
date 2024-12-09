@@ -93,9 +93,13 @@ export const DropDown = ({ icon, handleInputClick, center }) => {
       </div>
 
       <div
-        className={`${position} ${isDropdownOpen ? ' scale-100' : 'scale-0'} transition duration-300  absolute z-[1000] top-full  mt-2  bg-white border border-gray-200 rounded-xl shadow-lg  w-[220px] md:w-[300px]  p-1 flex flex-col  `}
+        ref={dropdownRef}
+        style={{ zIndex: 1000 }}
+        className={`${position}  ${
+          isDropdownOpen ? 'scale-100' : 'scale-0'
+        } transition duration-300  absolute  top-full  mt-2  bg-white border border-gray-200 rounded-xl shadow-lg  w-[220px] md:w-[300px]  p-1 flex flex-col  `}
       >
-        <div ref={dropdownRef} className={`  `}>
+        <div>
           <div>
             <p className="p-2 text-[12px] bg-gray-50 rounded-xl text-gray-500 ">
               INPUT TYPES
