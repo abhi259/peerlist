@@ -20,7 +20,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="h-[56px] border-b border-gray-300 bg-white z-[99999] w-full flex justify-between items-center p-4 sticky top-0  ">
+    <div className="h-[56px] border-b border-gray-300 bg-white z-[50] w-full flex justify-between items-center p-4 sticky top-0  ">
       <input
         onChange={handleFormTitle}
         className="focus:outline-none "
