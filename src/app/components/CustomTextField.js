@@ -46,7 +46,6 @@ export const CustomTextField = ({ id, fieldData, index, preview = false }) => {
     const tempState = inputFieldDataState;
     tempState[index] = item;
     setInputFieldDataState(tempState);
-    console.log(item);
   };
 
   const handleDelete = () => {

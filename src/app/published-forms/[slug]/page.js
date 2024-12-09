@@ -16,7 +16,7 @@ export default function PublishedForm() {
     if (tempPublishedData) {
       setFormData(tempPublishedData[formKey]);
     }
-    console.log(tempPublishedData[formKey]);
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -24,7 +24,7 @@ export default function PublishedForm() {
       <div className="h-[56px] border-b border-gray-300 w-full flex justify-between items-center p-4  ">
         <p>{formData?.formTitle || 'Untitled Form'}</p>
         <div className="flex flex-col items-end gap-1">
-          <p className="text-[14px]  ">Form completeness — 80%</p>
+          <p className="text-[14px]  "> Form completeness — 80%</p>
           <div className="w-[300px] bg-gray-200 rounded-full h-2">
             <div
               className="bg-green-600 h-2 rounded-full"

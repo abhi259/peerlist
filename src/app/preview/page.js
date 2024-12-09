@@ -1,12 +1,11 @@
 'use client';
 
+import { CustomTextField } from '@/app/components/CustomTextField';
+import useDraftStorage from '@/utils/customHooks/useDraftStorage';
 import {
   useInputFieldStore,
   useSaveAsDraftStore,
 } from '@/zustand-store/input-field-store';
-import { CustomTextField } from '@/app/components/CustomTextField';
-import { useEffect } from 'react';
-import useDraftStorage from '@/utils/customHooks/useDraftStorage';
 
 export default function Preview() {
   const {
@@ -27,7 +26,7 @@ export default function Preview() {
         <p>{title}</p>
         <div className="flex flex-col items-end gap-1">
           <p className="text-[14px]  ">Form completeness — 80%</p>
-          <div className="w-[300px] bg-gray-200 rounded-full h-2">
+          <div className="w-[200px] md:w-[300px] bg-gray-200 rounded-full h-2">
             <div
               className="bg-green-600 h-2 rounded-full"
               style={{ width: `${80}%` }}
@@ -35,8 +34,8 @@ export default function Preview() {
           </div>
         </div>
       </div>
-      <div className=" p-4  space-y-2">
-        {inputFieldDataState.map((item, index) => (
+      <div className=" p-4  space-y-2 ">
+        {inputFieldDataState?.map((item, index) => (
           <CustomTextField
             key={item.text + '-' + index}
             fieldData={item}
